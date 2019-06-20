@@ -3,8 +3,6 @@ import ExpensiveController from "./expensiveController";
 import Expensive from "./expensive";
 import ExpensiveDTO from "./expensiveDTO";
 
-const expensiveController: ExpensiveController = new ExpensiveController();
-
 function populateExpensiveDTO(req: Request): ExpensiveDTO {
   const expensiveDTO: ExpensiveDTO = new ExpensiveDTO();
   expensiveDTO.id = req.body.id;
@@ -18,6 +16,7 @@ export default [
     path: "/expensives",
     method: "get",
     handler: async (req: Request, res: Response) => {
+      const expensiveController: ExpensiveController = new ExpensiveController();
       res.send(await expensiveController.getAllExpensives());
     }
   },
@@ -25,6 +24,7 @@ export default [
     path: "/expensives",
     method: "post",
     handler: async (req: Request, res: Response) => {
+      const expensiveController: ExpensiveController = new ExpensiveController();
       const expensiveDTO: ExpensiveDTO = populateExpensiveDTO(req);
       res.send(await expensiveController.saveExpensive(expensiveDTO));
     }
@@ -33,6 +33,7 @@ export default [
     path: "/expensives/:id",
     method: "get",
     handler: async (req: Request, res: Response) => {
+      const expensiveController: ExpensiveController = new ExpensiveController();
       res.send(await expensiveController.getExpensiveById(req.params.id));
     }
   },
@@ -40,6 +41,7 @@ export default [
     path: "/expensives/:id",
     method: "put",
     handler: async (req: Request, res: Response) => {
+      const expensiveController: ExpensiveController = new ExpensiveController();
       const expensiveDTO: ExpensiveDTO = populateExpensiveDTO(req);
       res.send(await expensiveController.updateById(req.params.id, expensiveDTO))
     }

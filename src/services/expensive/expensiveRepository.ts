@@ -1,6 +1,19 @@
 import Expensive from "./expensive";
+import { EntityRepository, Repository } from "typeorm";
 
-export default class ExpensiveRepository {
+@EntityRepository(Expensive)
+export default class ExpensiveRepository extends Repository<Expensive> {
+    
+    public findByName(name: string): Promise<Expensive[]>{
+        return this.find({name});
+    }
+
+    public getAllExpensives(): Promise<Expensive[]> {
+        return this.find();
+    }
+}
+
+/*export default class ExpensiveRepository {
 
     expensives: Expensive[] = []
 
@@ -42,4 +55,4 @@ export default class ExpensiveRepository {
         this.expensives.push(expensive);
         return new Promise(next => next(expensive));
     }
-}
+}*/

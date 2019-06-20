@@ -3,7 +3,10 @@ import express from "express";
 import { applyMiddleware, applyRoutes } from "./utils";
 import routes from './services';
 import middleware from "./middleware";
+import "reflect-metadata";
+import {createConnection} from "typeorm"
 
+createConnection();
 const router = express();
 applyMiddleware(middleware, router);
 applyRoutes(routes, router);

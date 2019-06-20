@@ -1,8 +1,16 @@
 import ExpensiveDTO from "./expensiveDTO";
+import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
+@Entity()
 export default class Expensive {
-    id?: number;
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
     name: string;
+
+    @Column()
     description: string;
 
     constructor(other: Partial<Expensive> = {}) {
