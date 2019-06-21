@@ -1,13 +1,17 @@
 import { Request, Response } from "express";
 import ExpensiveController from "./expensiveController";
-import Expensive from "./expensive";
 import ExpensiveDTO from "./expensiveDTO";
+import CategoryDTO from "../category/categoryDTO";
 
 function populateExpensiveDTO(req: Request): ExpensiveDTO {
   const expensiveDTO: ExpensiveDTO = new ExpensiveDTO();
   expensiveDTO.id = req.body.id;
   expensiveDTO.name = req.body.name;
   expensiveDTO.description = req.body.description;
+  expensiveDTO.price = req.body.price;
+  expensiveDTO.categoryDTO = new CategoryDTO();
+  expensiveDTO.categoryDTO.id = req.body.categoryDTO.id;
+  console.log(expensiveDTO);
   return expensiveDTO;
 }
 
