@@ -1,3 +1,4 @@
 import expensiveRouters from "./expensive/expensiveRouters";
+import categoryRouters from "./category/categoryRouters";
 
-export default [...expensiveRouters];
+export default [...expensiveRouters, ...categoryRouters];

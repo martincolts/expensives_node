@@ -11,7 +11,6 @@ function populateExpensiveDTO(req: Request): ExpensiveDTO {
   expensiveDTO.price = req.body.price;
   expensiveDTO.categoryDTO = new CategoryDTO();
   expensiveDTO.categoryDTO.id = req.body.categoryDTO.id;
-  console.log(expensiveDTO);
   return expensiveDTO;
 }
 

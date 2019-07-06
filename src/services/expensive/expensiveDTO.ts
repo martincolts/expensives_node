@@ -24,15 +24,16 @@ export default class ExpensiveDTO {
 
     public toExpensive(): Expensive {
         let expensive: Expensive = new Expensive();
+        this.populateExpensive(expensive);
+        return expensive;
+    }
+
+    private populateExpensive(expensive: Expensive) {
         expensive.id = this.id;
         expensive.description = this.description;
         expensive.name = this.name;
         expensive.created = new Date();
         expensive.price = this.price;
-        console.log(this);
-        console.log(expensive);
         expensive.category = this.categoryDTO.toCategory();
-        console.log(expensive);
-        return expensive;
     }
 }
