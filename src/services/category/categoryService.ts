@@ -23,7 +23,7 @@ export default class CategoryService {
     }
 
     public async getAllCategories (): Promise<CategoryDTO[]> {
-        const categories: Category[] = await this.categoryRepository.find();
+        const categories: Category[] = await this.categoryRepository.findAll();
         const categoriesDTO: CategoryDTO[] = [];
         categories.forEach((category) => {
             categoriesDTO.push(category.toCategoryDTO());

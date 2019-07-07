@@ -43,7 +43,8 @@ export default class Expensive {
         expensiveDTO.name = this.name;
         expensiveDTO.created = this.created;
         expensiveDTO.price = this.price;
-        expensiveDTO.categoryDTO = this.category.toCategoryDTO();
+        if (this.category)
+            expensiveDTO.categoryDTO = this.category.toCategoryDTO();
         return expensiveDTO;
     }
 }

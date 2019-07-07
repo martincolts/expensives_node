@@ -27,6 +27,12 @@ export default class Category {
         let categoryDTO: CategoryDTO = new CategoryDTO();
         categoryDTO.id = this.id;
         categoryDTO.name = this.name;
+        if (this.expensives) {
+            categoryDTO.expensives = [];
+            this.expensives.forEach((expensive) => {
+                categoryDTO.expensives.push(expensive.toExpensiveDTO());
+            });
+        }
         return categoryDTO;        
     }
 }
